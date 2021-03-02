@@ -28,11 +28,11 @@ def call_handler():
     if request.method == 'HEAD':
         return ('', 200)
 
-    start_time = time.time()
-    handler.handle(client, db, request.get_data())
-    elapsed_time = (time.time() - start_time) * 1000
-    print("req processed in {}ms".format(elapsed_time))
-    return ('', 200)
+    try:
+        handler.handle(client, db, request.get_data())
+        return ('', 200)
+    except Exception:
+        return ('', 500)
 
 if __name__ == '__main__':
     serve(app, host='0.0.0.0', port=8009)
