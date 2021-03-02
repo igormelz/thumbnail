@@ -8,7 +8,10 @@ import string
 import base64
 import numpy as np
 
-from PIL import Image
+from PIL import Image, ImageFile
+
+# fix truncate ??
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 # thumbnail size
 t_size = (320, 320)
@@ -56,6 +59,7 @@ def handle(client, db, body):
 
     # process image
     with Image.open(file_input) as im:
+        
         # calc image size
         (im_width, im_height) = im.size
 
