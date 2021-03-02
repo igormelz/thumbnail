@@ -16,7 +16,7 @@ m_size = (40, 40)
 
 def getObjName(prefix, size=11):
     chars = string.ascii_letters + string.digits
-    return prefix + ''.join(random.choice(chars) for x in range(size)) + '.webp'
+    return prefix + '/' + ''.join(random.choice(chars) for x in range(size)) + '.webp'
 
 def dhash(image):
     arr = np.array(image.resize((9, 8), Image.ANTIALIAS).convert('L')).astype('uint8')
