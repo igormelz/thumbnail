@@ -1,0 +1,5 @@
+minio
+Pillow
+numpy
+grpcio==1.19.0
+pydgraph
